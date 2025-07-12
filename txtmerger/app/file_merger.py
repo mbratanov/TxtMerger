@@ -1,6 +1,7 @@
 import os
 from typing import Optional, Callable
 
+
 class FileMerger:
     """Handles the core logic of merging text files."""
 
@@ -16,16 +17,8 @@ class FileMerger:
         Args:
             source_dir: Directory containing .txt files
             output_file: Output file path
-            progress_callback: Function to report progress (filename, current, total)
-
-        Returns:
-            Number of files merged
-
-        Raises:
-            FileNotFoundError: If source_dir doesn't exist
-            PermissionError: If lacking file permissions
+            progress_callback: Function with signature (filename, current, total)
         """
-
         if not os.path.isdir(source_dir):
             raise FileNotFoundError(f"Directory not found: {source_dir}")
 
@@ -48,7 +41,7 @@ class FileMerger:
                             progress_callback(filename, i, total_files)
 
                     except UnicodeDecodeError:
-                        continue  # Skip non-text files
+                        continue
 
             return total_files
 

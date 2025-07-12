@@ -1,7 +1,7 @@
 import os
 from PySide6.QtWidgets import (QWidget, QVBoxLayout, QGroupBox, QLabel,
                                QPushButton, QFileDialog, QProgressBar,
-                               QMessageBox)
+                               QMessageBox, QApplication)
 import qtawesome as qta
 
 from txtmerger.app.file_merger import FileMerger
@@ -108,6 +108,13 @@ class MainWindow(QWidget):
             self.settings.output_dir = os.path.dirname(output_file)
             self.output_file_label.setText(f"Output File: {os.path.basename(output_file)}")
 
+    def _update_merge_progress(self, filename: str, current: int, total: int):
+        """Update progress bar and status during merge."""
+        self.progress_bar.setMaximum(total)
+        self.progress_bar.setValue(current)
+        self.status_label.setText(f"Merging: {filename} ({current}/{total})")
+        QApplication.processEvents()
+
     def _merge_files(self):
         """Handle the merge operation."""
         if not self.settings.source_dir:
@@ -122,16 +129,10 @@ class MainWindow(QWidget):
         self.status_label.setText("Starting merge...")
 
         try:
-            def progress_callback(filename, current, total):
-                self.progress_bar.setMaximum(total)
-                self.progress_bar.setValue(current)
-                self.status_label.setText(f"Merging: {filename} ({current}/{total})")
-                QApplication.processEvents()
-
             total_merged = self.file_merger.merge_files(
                 self.settings.source_dir,
                 self.output_file_path,
-                progress_callback
+                self._update_merge_progress
             )
 
             self.status_label.setText(f"Merge complete! {total_merged} files merged.")

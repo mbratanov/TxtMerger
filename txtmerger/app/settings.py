@@ -5,7 +5,7 @@ class AppSettings:
     """Handles persistent application settings."""
 
     def __init__(self):
-        self._settings = QSettings("Possible Ltd", "TxtMerger")
+        self._settings = QSettings("Possible", "TxtMerger")
 
     @property
     def source_dir(self) -> str:
