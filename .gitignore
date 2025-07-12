@@ -1,1 +1,19 @@
-/pycache/*
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Other common temp files
+.DS_Store
+*.log
+*.sqlite3
