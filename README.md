@@ -1,61 +1,70 @@
-TxtMerger
-A simple GUI tool for merging multiple .txt files into a single output file
+# TxtMerger
+## A simple GUI tool for merging multiple .txt files into a single output file
 
-https://img.shields.io/badge/PySide6-6.9.1-blue
-https://img.shields.io/badge/Python-3.8%252B-green
+![PySide6-6.9.1](https://img.shields.io/badge/PySide6-6.9.1-blue)
+![Python-3.8](https://img.shields.io/badge/Python-3.8-green)
 
 TxtMerger is a lightweight desktop application built with PySide6 (Qt for Python) that allows users to:
-✔ Merge multiple .txt files from a selected directory into a single output file.
-✔ Track progress with a real-time progress bar and file counter.
-✔ Remember previous directories thanks to persistent QSettings.
-✔ Simple & intuitive UI with QtAwesome icons and clean styling.
 
-📦 Features
-File Selection – Choose a source directory and output file path via a file dialog.
+* Merge multiple .txt files from a selected directory into a single output file.  
+* Track progress with a real-time progress bar and file counter.  
+* Remember previous directories thanks to persistent QSettings.  
+* Simple & intuitive UI with QtAwesome icons and clean styling.  
 
-Progress Tracking – See which file is being merged and the overall progress.
+&nbsp;
+### 📦 Features
+* File Selection – Choose a source directory and output file path via a file dialog.
 
-Error Handling – Handles missing directories, permission issues, and encoding errors.
+* Progress Tracking – See which file is being merged and the overall progress.
 
-Persistent Settings – Remembers the last-used source and output directories.
+* Error Handling – Handles missing directories, permission issues, and encoding errors.
 
-Modern UI – Uses QtAwesome for FontAwesome icons and custom stylesheets.
+* Persistent Settings – Remembers the last-used source and output directories.
 
-🚀 Installation
-Clone the repository:
+* Modern UI – Uses QtAwesome for FontAwesome icons and custom stylesheets.
 
-bash
-git clone https://github.com/yourusername/TxtMerger.git
-cd TxtMerger
-Install dependencies:
+&nbsp;
+### 🚀 Installation
 
-bash
-pip install -r requirements.txt
-Run the application:
+* Clone the repository:
+  
+  ```bash
+  git clone https://github.com/mbratanov/TxtMerger.git
+  cd TxtMerger
+  ```
 
-bash
-python main.py
-🖥️ Usage
-Select a source directory containing .txt files.
+* Install dependencies:
 
-Choose an output file where the merged content will be saved.
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-Click "Merge .txt files" to combine all .txt files into one.
+* Run the application:
+  
+  ```bash
+  python main.py
+  ```
+&nbsp;
+### 🖥️ Usage
+1. Select a source directory containing .txt files.</li>
 
-[Screenshot](https://github.com/mbratanov/TxtMerger/blob/master/screenshot/screenshot.png?raw=true)
+2. Choose an output file where the merged content will be saved.</li>
 
-🛠️ Technical Details
-Backend:
+3. Click "Merge .txt files" to combine all .txt files into one.</li>
+&nbsp;
 
-FileMerger class handles file operations (merging, encoding checks).
+![Screenshot](screenshot/screenshot.png)
 
-AppSettings uses QSettings to store user preferences.
+&nbsp;
+### 🛠️ Technical Details
+* Backend:
+  * FileMerger class handles file operations (merging, encoding checks).</li>
+  * AppSettings uses QSettings to store user preferences.</li>
 
-Frontend:
+* Frontend:
+  * MainWindow provides a clean Qt interface with grouped sections.</li>
+  * Progress updates via signals and QProgressBar.</li>
 
-MainWindow provides a clean Qt interface with grouped sections.
-
-Progress updates via signals and QProgressBar.
-
-📜 License
+&nbsp;
+### 📜 License
 MIT
