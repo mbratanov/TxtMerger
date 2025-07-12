@@ -34,7 +34,6 @@ class FileMerger:
                     filepath = os.path.join(source_dir, filename)
                     try:
                         with open(filepath, "r", encoding="utf-8") as in_file:
-                            out_file.write(f"\n\n=== File: {filename} ===\n\n")
                             out_file.write(in_file.read())
 
                         if progress_callback:
